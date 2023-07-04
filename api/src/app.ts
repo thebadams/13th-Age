@@ -1,12 +1,8 @@
-import fastify from 'fastify'
+import { ServerConfig } from "./config/server.js"
 
-const server = fastify()
+const {server, PORT} = ServerConfig
 
-server.get('/ping', async (request, reply) => {
-  return 'pong\n'
-})
-
-server.listen({ port: 8080 }, (err, address) => {
+server.listen({ port: PORT }, (err, address) => {
   if (err) {
     console.error(err)
     process.exit(1)

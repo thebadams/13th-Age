@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "API for 13th Age",
   "main": "dist/app.js",
-	"type": "module",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-		"build": "node build.mjs",
-		"start": "node dist/app.js"
+    "build": "tsc",
+    "start": "node dist/app.js"
   },
   "author": "thebadams",
   "license": "MIT",
@@ -16,7 +16,6 @@
   },
   "devDependencies": {
     "@types/node": "^20.3.3",
-    "esbuild": "^0.18.11",
     "typescript": "^5.1.6"
   }
 }

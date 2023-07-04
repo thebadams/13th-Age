@@ -1,0 +1,11 @@
+{
+  "name": "13th-age",
+  "version": "1.0.0",
+  "description": "Apps for the ttrpg system 13th-Age",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "thebadams",
+  "license": "MIT"
+}

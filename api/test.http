@@ -1,0 +1,13 @@
+
+# GET request to /ping
+# Expected response: "pong"
+GET http://127.0.0.1:3000/ping HTTP/1.1
+
+###
+## GET root 
+
+GET http://127.0.0.1:3000/ HTTP/1.1
+
+###
+
+GET http://127.0.0.1:3000/api/classes/

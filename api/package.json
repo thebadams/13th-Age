@@ -7,7 +7,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
-    "start": "node dist/app.js"
+		"build:watch": "tsc --watch",
+    "start": "node dist/app.js",
+		"start:dev": "nodemon dist/app.js",
+		"dev": "npm run build:watch && npm run start:dev"
   },
   "author": "thebadams",
   "license": "MIT",
@@ -16,6 +19,7 @@
   },
   "devDependencies": {
     "@types/node": "^20.3.3",
+    "ts-node-dev": "^2.0.0",
     "typescript": "^5.1.6"
   }
 }

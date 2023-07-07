@@ -1,0 +1,71 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Class {
+  id            Int            @id @default(autoincrement())
+  name          String
+  Feat          Feat[]
+  bonuses       Ability[]
+  classFeatures ClassFeature[]
+}
+
+model ClassFeature {
+  id       Int    @id @default(autoincrement())
+  name     String
+	description String
+  class_id Int
+  class    Class  @relation(fields: [class_id], references: [id])
+}
+
+model Race {
+  id             Int         @id @default(autoincrement())
+  name           String
+  bonuses        Ability[]
+  racialPower    racialPower @relation(fields: [racialPower_id], references: [id])
+  racialPower_id Int         @unique
+  Feat           Feat[]
+}
+
+enum Ability {
+  Strength
+  Dexterity
+  Constitution
+  Intelligence
+  Wisdom
+  Charisma
+}
+
+model racialPower {
+  id          Int    @id @default(autoincrement())
+  name        String
+  description String
+  race        Race?
+}
+
+model Feat {
+  id         Int      @id @default(autoincrement())
+  name       String
+  adventurer String?
+  champion   String?
+  epic       String?
+  type       FeatType @default(General)
+  race       Race?    @relation(fields: [race_id], references: [id])
+  race_id    Int
+  class      Class?   @relation(fields: [class_id], references: [id])
+  class_id   Int
+}
+
+enum FeatType {
+  General
+  Racial
+  Class
+}
